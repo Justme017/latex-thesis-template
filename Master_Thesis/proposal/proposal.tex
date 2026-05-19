@@ -1,0 +1,249 @@
+\documentclass[12pt]{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Meta informations:
+\newcommand{\trauthor}{Student Name}
+\newcommand{\trtype}{Thesis or Research Proposal} %{Expos\'{e}} %{Review}
+\newcommand{\trtitle}{Thesis proposal title}
+\newcommand{\trdate}{01.09.2023}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Languages:
+
+% Falls die Ausarbeitung in Deutsch erfolgt:
+% \usepackage[german]{babel}
+% \usepackage[T1]{fontenc}
+% \usepackage[latin1]{inputenc}
+% \usepackage[latin9]{inputenc}	 				
+% \selectlanguage{german}
+
+% If the thesis is written in English:
+\usepackage[english]{babel} 						
+\selectlanguage{english}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Bind packages:
+\usepackage{acronym}                    % Acronyms
+\usepackage{algorithmic}								% Algorithms and Pseudocode
+\usepackage{algorithm}									% Algorithms and Pseudocode
+\usepackage{amsfonts}                   % AMS Math Packet (Fonts)
+\usepackage{amsmath}                    % AMS Math Packet
+\usepackage{amssymb}                    % Additional mathematical symbols
+\usepackage{amsthm}
+\usepackage{booktabs}                   % Nicer tables
+%\usepackage[font=small,labelfont=bf]{caption} % Numbered captions for figures
+\usepackage{color}                      % Enables defining of colors via \definecolor
+\definecolor{uhhRed}{RGB}{254,0,0}		  % Official Uni Hamburg Red
+\definecolor{uhhGrey}{RGB}{122,122,120} % Official Uni Hamburg Grey
+\usepackage{fancybox}                   % Gleichungen einrahmen
+\usepackage{fancyhdr}										% Packet for nicer headers
+%\usepackage{fancyheadings}             % Nicer numbering of headlines
+
+%\usepackage[outer=3.35cm]{geometry} 	  % Type area (size, margins...) !!!Release version
+%\usepackage[outer=2.5cm]{geometry} 		% Type area (size, margins...) !!!Print version
+%\usepackage{geometry} 									% Type area (size, margins...) !!!Proofread version
+\usepackage[outer=3.15cm]{geometry} 	  % Type area (size, margins...) !!!Draft version
+\geometry{a4paper,body={5.8in,9in}}
+
+\usepackage{graphicx}                   % Inclusion of graphics
+%\usepackage{latexsym}                  % Special symbols
+\usepackage{longtable}									% Allow tables over several parges
+\usepackage{listings}                   % Nicer source code listings
+\usepackage{multicol}										% Content of a table over several columns
+\usepackage{multirow}										% Content of a table over several rows
+\usepackage{rotating}										% Alows to rotate text and objects
+\usepackage[hang]{subfigure}            % Allows to use multiple (partial) figures in a fig
+%\usepackage[font=footnotesize,labelfont=rm]{subfig}	% Pictures in a floating environment
+\usepackage{tabularx}										% Tables with fixed width but variable rows
+\usepackage{url,xspace,boxedminipage}   % Accurate display of URLs
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Configurationen:
+
+\hyphenation{whe-ther} 									% Manually use: "\-" in a word: Staats\-ver\-trag
+
+%\lstloadlanguages{C}                   % Set the default language for listings
+\DeclareGraphicsExtensions{.pdf,.svg,.jpg,.png,.eps} % first try pdf, then eps, png and jpg
+\graphicspath{{./src/}} 								% Path to a folder where all pictures are located
+\pagestyle{fancy} 											% Use nicer header and footer
+
+% Redefine the environments for floating objects:
+\setcounter{topnumber}{3}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{4}
+\renewcommand{\topfraction}{0.9} 			  %Standard: 0.7
+\renewcommand{\bottomfraction}{0.5}		  %Standard: 0.3
+\renewcommand{\textfraction}{0.1}		  	%Standard: 0.2
+\renewcommand{\floatpagefraction}{0.8} 	%Standard: 0.5
+
+% Tables with a nicer padding:
+\renewcommand{\arraystretch}{1.2}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Additional 'theorem' and 'definition' blocks:
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+%\newtheorem{theorem}{Satz}[section]		% Wenn in Deutsch geschrieben wird.
+\newtheorem{axiom}{Axiom}[section] 	
+%\newtheorem{axiom}{Fakt}[chapter]			% Wenn in Deutsch geschrieben wird.
+%Usage:%\begin{axiom}[optional description]%Main part%\end{fakt}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+%Additional types of axioms:
+\newtheorem{lemma}[axiom]{Lemma}
+\newtheorem{observation}[axiom]{Observation}
+
+%Additional types of definitions:
+\theoremstyle{remark}
+%\newtheorem{remark}[definition]{Bemerkung} % Wenn in Deutsch geschrieben wird.
+\newtheorem{remark}[definition]{Remark} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Provides TODOs within the margin:
+\newcommand{\TODO}[1]{\marginpar{\emph{\small{{\bf TODO: } #1}}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Abbreviations and mathematical symbols
+\newcommand{\modd}{\text{ mod }}
+\newcommand{\RS}{\mathbb{R}}
+\newcommand{\NS}{\mathbb{N}}
+\newcommand{\ZS}{\mathbb{Z}}
+\newcommand{\dnormal}{\mathit{N}}
+\newcommand{\duniform}{\mathit{U}}
+
+\newcommand{\erdos}{Erd\H{o}s}
+\newcommand{\renyi}{-R\'{e}nyi}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Document:
+\begin{document}
+\renewcommand{\headheight}{14.5pt}
+
+\fancyhead{}
+\fancyhead[CO]{\trtitle}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Cover Header:
+\title{\trtitle\\[0.3cm]{\normalsize\trtype}}
+\author{\trauthor}
+\date{\trdate}
+
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\thispagestyle{empty}
+\pagenumbering{arabic}
+ The whole proposal should be at least 3 and no more than 5 pages long. \textbf{Please stick strictly to these limits!}
+% Abstract gives a brief summary of the main points of a paper:
+\begin{abstract}
+  (5-10 sentences) Write a brief summary about your proposed thesis topic here.
+\end{abstract}
+
+% the actual content, usually separated over a number of sections
+% each section is assigned a label, in order to be able to put a
+% crossreference to it
+
+\section{Introduction}
+\label{sec:introduction}
+($\approx$ 1-2 pages) 
+
+The introduction describes the problem and why it is important. IT also covers the main ideas and contributions. The introduction is the most important part of your proposal. It is a very short text, but this text should be extremely well written and clear. It deserves a lot of polishing. If the introduction is boring or not well written, a potential supervisor will most likely not have fun reading your proposal, or may stop reading at all. The introduction (together with abstract and title) is the ``bait'' to get your supervisor hooked.
+
+The introduction should be a short version of the whole exposee, with a focus on motivation. A good introduction is structured as follows:
+
+\begin{enumerate}
+\item It should start with a brief motivational problem outline to set the stage e.g., ``It is important to build intelligent robots. A popular method to develop intelligent robots is X. However, X has problem Y.''
+
+\item It should then contain a specific formulation of your research question (RQ). For a good description of how to formulate a research question, consider \url{https://www.scribbr.com/research-process/research-questions/}. E.g.: ``How can we extend X to address Y?''
+
+\item In addition to your research question, you should state a specific hypothesis: 
+``I hypothesize that we can address Y by extending X with Z.''
+
+\item The RQ and hypothesis should be followed by a very brief (one-two sentences) summary of how you want to address the question, i.e., the methods and evaluation metrics you want to use, highlighting your research contributions with respect to the state of the art. 
+Herein, you should also refer to the individual sections in your paper to give the reader a brief outline. 
+``The review of the related work in Section 2 of this paper shows that method Q has not yet been investigated as a solution to problem X. As a novel contribution, I will address this hypothesis / RQ by implementing Z using method Q, as described in Section 3. I will evaluate the results by measuring V, as described in Section 4.'' 
+
+\item For a proposal or an exposee, you should conclude by summarizing the whole proposal again ``I conclude in Section 5 that the proposed method is indeed suitable for addressing the research question because ...''
+
+\end{enumerate}
+It does not matter whether you use ``I'' or ``We''. It does matter, however, that you use the same pronoun consistently.
+
+
+% \section{Optional: Background Information}
+% \label{sec:basics}
+% A brief section giving background information may be necessary, especially if your work spans two or more traditional fields. That means that your readers may not have any experience with some of the material needed to follow your thesis, so you need to give it to them. A different title than that given above is usually better; e.g., "A Brief Review of Frammis Algebra."
+
+\section{Related Work}
+\label{sec:relwork}
+($\approx$ 0.5 page) 
+
+The related work section could describe other work that is in some respects relevant for the understanding of the problem outlined in Section~\ref{sec:introduction}, that offer competing solutions, etc.
+
+All sources must be properly referenced, ideally by using the BiBTeX system. References can then be very conveniently made with the \textsc{cite} command. For example, reference
+\cite{Leunen:Scholars:92} discusses some of the elementary rules on
+writing scientific papers, amongst others how to correctly cite other
+documents. Reference \cite{Taylor:SIGuide:95}, e.g., describes how to
+correctly use the SI system of units and their correct typographical
+representation. In general, you organize this section by idea, and not by author or by publication.
+
+\section{Methods description}
+\label{sec:model}
+($\approx$ 1 page) 
+
+After the introduction and related work sections, you should describe the methods you are going to use. This includes theoretical background and proposals for how to extend existing methods. 
+
+
+\section{Evaluation}
+\label{sec:analysis}
+($\approx$ 1 page) 
+
+At this point, you should state how you plan to evaluate your method. This is of particular importance for empirical work, where you evaluate a method by quantitative metrics like learning performance, etc. For a purely theoretical thesis, it might also be skipped or kept very short and brief.  
+
+It is important that the evaluation section is linked to the hypothesis stated in the introduction. You have to make clear, that your evaluation method is appropriate to validate or falsify your hypotheses. 
+
+% \section{Task description and work programme}
+% \label{sec:tasks}
+% ($\approx$ 1.5 pages) 
+
+% The previous sections were to outline the thesis. Now you have to think about a time frame and breaking down the whole project into manageable chunks. This usually starts with reading background literature, implementing a baseline method, or, in case of theoretical work, analyzing existing theoretical results. Then you will want to extend the existing work, according to the methods described above. And so on. Note that the work programme is flexible, and it is likely that during the course of your thesis it will be adapted to the process. You will also do things in parallel, and estimating the duration of a task is quite hard. Nevertheless, it is important to do this estimation, so that you don't end up in an overly ambitions project that you cannot finish in time. As a rule of thumb, each time estimation for a specific task will usually take twice as long in practice. 
+
+% Another purpose of defining tasks and a work programme is to protect you from drifting away from your topic and adding more and more goals retrospectively.
+
+% \subsection{Implement algorithm X as a baseline}
+% Duration: X days
+% Details: ...
+
+% \subsection{Extend algorithm X with method Y}
+% Duration: X days
+% Details: ...
+
+% \subsection{Implement evaluation environment}
+% Duration: X days
+% Details: ... 
+
+% \subsection{Summarize state of the art}
+% Duration: X days
+% Details: ...
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% hier werden - zum Ende des Textes - die bibliographischen Referenzen
+% eingebunden
+%
+% Insbesondere stehen die eigentlichen Informationen in der Datei
+% ``bib.bib''
+%
+\bibliography{bib}
+\bibliographystyle{plain}
+
+\end{document}
+
+
